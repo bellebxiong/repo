@@ -1,30 +1,44 @@
 #include<iostream>
 #include<vector>
 using spacename std;
-
+void adjustBigRootHeap(vector<int> & array,int size);
 int main()
 {
-    vector<int> myarray;    
+    vector<int> myarray;   
+    sort(myarray);
 }
 
 void sort(vector<int> & array)
 {
-    //array.size()/2
-}
-
-int getMaxIndex(vector<int> & array,int start, int end)
-{
-    int max=*(array.begin());
-    int ret=0;
-    for(vector<int>::iterator i=array.begin()+start; i <array.begin()+end;++i)
+    int size=array.size()
+    while(size>1)
     {
-        if (*i>max)
-        {
-            max=*i;
-            ret=i-array.begin();
-        }
+    adjustBigRootHeap(array,size);
+    swap(1,size-1);
     }
-    return ret;
 }
        
+//adjust big root heap
+void adjustBigRootHeap(vector<int> & array,int size)
+{
+    int root_index=1;
+    int left_index=root_index*2;
+    int right_index=root_index*2+1;
+    while(root_index<size &&left_index<size)
+    {
+        if(right_index<size)
+        {
+            if(array[root_index]<array[left_index]||array[root_index]<array[right_index])
+            {
+                (array[left_index]<array[right_index])?swap(right_index,root_index):swap(left_index,root_index);
+            }
+        }
+        else
+        {  
+            (array[root_index]<array[left_index])?swap(left_index,root_index):1;
+        }
+        root_index*=2;
+    }
+}
+    
     
