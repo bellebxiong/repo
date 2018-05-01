@@ -1,0 +1,14 @@
+[yuming]
+yuming1=http://www.google.com
+yuming2=https://www.baidu.com
+
+[time]
+reload=1
+
+[mailto]
+sender=449206xxx@qq.com
+receiver=449206xxx@qq.com
+passwd=xxxxxxxxxx
+
+[retry]
+times=2
